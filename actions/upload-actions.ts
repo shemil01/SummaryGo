@@ -20,12 +20,14 @@ export async function generatePdfSummary(uploadResponse: {
       data: null,
     };
   }
+
   const {
     serverData: {
       userId,
       file: { url: pdfUrl, name: fileName },
     },
-  } = uploadResponse[0];
+  } = uploadResponse;
+
   if (!pdfUrl) {
     return {
       success: false,
@@ -33,6 +35,7 @@ export async function generatePdfSummary(uploadResponse: {
       data: null,
     };
   }
+
   try {
     const pdfText = await fetchAndExtractPdfText(pdfUrl);
     console.log(pdfText);
@@ -51,10 +54,16 @@ export async function generatePdfSummary(uploadResponse: {
         data: null,
       };
     }
+
+    return {
+      success: true,
+      message: "Summary generated successfully",
+      data: summary,
+    };
   } catch (error) {
     return {
       success: false,
-      message: "File upload failed",
+      message: "File processing failed",
       data: null,
     };
   }
