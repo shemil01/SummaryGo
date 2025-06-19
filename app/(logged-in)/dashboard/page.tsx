@@ -3,8 +3,8 @@ import React from 'react'
 
 export default function Dashboard() {
   return (
-    <main className='min-h-screen'>
-        <BgGradient className='fr ' />
+    <main className='min-h-screen' >
+        <BgGradient className='bg-' />
     </main>
   )
 }

@@ -22,6 +22,12 @@ const schema = z.object({
       "File must be a PDF"
     ),
 });
+type UploadedFile = {
+  fileUrl: string;
+  originalFile: {
+    originalFileName: string;
+  };
+};
 
 const UploadForm = () => {
   // const {toast} = useToast()
@@ -41,7 +47,7 @@ const UploadForm = () => {
     },
   };
 
-  const onComplete = async (files) => {
+  const onComplete = async (files:UploadedFile[]) => {
     if (!files || files.length === 0) return;
 
     const uploadedFile = files[0];
