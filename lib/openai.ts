@@ -6,7 +6,7 @@ const openai = new OpenAI({
 export async function generateSummaryFromOpenAI(pdfText: string) {
   try {
     const compleation = await openai.chat.completions.create({
-      model: "gpt-4",
+        model: 'gpt-3.5-turbo',
       messages: [
         { role: "system", content: SUMMARY_SYSTEM_PROMPT },
         {

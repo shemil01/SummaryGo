@@ -17,11 +17,11 @@ export const ourFileRouter = {
       if (!user) throw new UploadThingError("unauthorized");
       return { userId: user.id };
     })
-    .onUploadComplete(async ({ metadata, file }) => {
-      console.log("upload for user id", metadata.userId);
-      console.log("file url", file.url);
-      return { userId: metadata.userId, file };
-    }),
+.onUploadComplete(async ({ metadata, file }) => {
+  console.log("Upload completed successfully");
+  console.log("File URL:", file.url);
+  return { status: "success" };
+})
 } satisfies FileRouter;
 
 export type OurFileRouter = typeof ourFileRouter;
