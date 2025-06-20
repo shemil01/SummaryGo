@@ -9,7 +9,7 @@ import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
 interface PdfSummaryType {
-  userId: string;
+  userId?: string;
   fileUrl: string;
   summary: string;
   title: string;
