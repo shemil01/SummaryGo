@@ -1,0 +1,4 @@
+{
+    "tailwindCSS.emmetCompletions": true,
+    "typescript.tsserver.web.projectWideIntellisense.suppressSemanticErrors": true
+}
